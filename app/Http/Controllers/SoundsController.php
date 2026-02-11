@@ -13,11 +13,13 @@ class SoundsController extends Controller
             return[
                 'id' => $sound->id,
                 'name'=> $sound->name,
-                'file_path' => $sound->file_path,
-                'image_path' => $sound->image_path,
-                'duration' => $sound->duration,
-            ];
-        });
+                'file_url' => url('storage/' . $sound->file_path),
+                'image_url' => $sound->image_path
+                ? url('storage/' . $sound->image_path)
+                : null,
+            'duration' => $sound->duration,
+        ];
+    });
         return response()->json($sounds);
     }
 }

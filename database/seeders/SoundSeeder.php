@@ -13,7 +13,8 @@ class SoundSeeder extends Seeder
      */
     public function run(): void
     {
-        Sounds::create([
+        $sounds = [
+        [
             'name' => 'Rain',
             'file_path' => 'sounds/rain.mp3',
             'image_path' => 'images/rain.jpg',
@@ -30,6 +31,11 @@ class SoundSeeder extends Seeder
             'file_path' => 'sounds/forest.mp3',
             'image_path' => 'images/forest.jpg',
             'duration' => 3600
-        ]);
+        ],
+    ];
+
+    foreach ($sounds as $sound) {
+        Sounds::create($sound);
     }
+}
 }
