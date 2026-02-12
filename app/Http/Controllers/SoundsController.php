@@ -13,9 +13,9 @@ class SoundsController extends Controller
             return [
                 'id' => $sound->id,
                 'name' => $sound->name,
-                'file_url' => url('storage/' . $sound->file_path),
+                'file_url' => url($sound->file_path),
                 'image_url' => $sound->image_path
-                    ? url('storage/' . $sound->image_path)
+                    ? url($sound->image_path)
                     : null,
                 'duration' => $sound->duration,
             ];
