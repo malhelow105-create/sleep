@@ -12,7 +12,7 @@ class SoundSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
+    {// this seeder will populate the sounds table with some initial data
         $sounds = [
         [
             'name' => 'Rain',
