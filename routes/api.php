@@ -9,3 +9,4 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/sounds', [SoundsController::class, 'index']);
+Route::get('/sounds/{category}', [SoundsController::class, 'byCategory']);
