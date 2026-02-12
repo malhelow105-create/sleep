@@ -17,7 +17,7 @@ class SoundSeeder extends Seeder
         [
             'name' => 'Rain',
             'file_path' => 'sounds/nature/rain.mp3',
-            'image_path' => 'images/nature/rain.pn',
+            'image_path' => 'images/nature/rain.png',
             'category' => 'Nature',
             'duration' => 3600
         ],
