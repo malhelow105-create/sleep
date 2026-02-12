@@ -34,6 +34,9 @@ class SoundsController extends Controller
                 'id' => $sound->id,
                 'name' => $sound->name,
                 'file_url' => url($sound->file_path),
+                'image_url' => $sound->image_path
+                    ? url($sound->image_path)
+                    : null,
                 'duration' => $sound->duration,
             ];
         }));
