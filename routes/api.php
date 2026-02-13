@@ -9,7 +9,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/sounds', [SoundsController::class, 'index']);
+// Route::get('/sounds', [SoundsController::class, 'index']);
+Route::get('/sounds', function (){
+    $sound =\App\Models\Sounds::all();
+    return response()->json($sound);
+});
 Route::get('/sounds/{category}', [SoundsController::class, 'byCategory']);
 
 Route::get('/images', function () {
