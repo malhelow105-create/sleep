@@ -27,3 +27,8 @@ Route::get('/images', function () {
 Route::get('/test-db', function () {
     return \App\Models\Sounds::count();
 });
+
+Route::get('/api/check-sounds', function () {
+    return \App\Models\Sound::all();
+});
+
