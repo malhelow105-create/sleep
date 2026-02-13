@@ -29,6 +29,6 @@ Route::get('/test-db', function () {
 });
 
 Route::get('/api/check-sounds', function () {
-    return \App\Models\Sound::all();
+    return \App\Models\Sounds::all();
 });
 
