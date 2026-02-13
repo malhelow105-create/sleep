@@ -20,6 +20,9 @@ COPY . .
 
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
+RUN php artisan migrate
+RUN php artisan db:seed
+
 
 # Expose port
 EXPOSE 10000
