@@ -23,3 +23,7 @@ Route::get('/images', function () {
 
     return response()->json($urls);
 });
+
+Route::get('/test-db', function () {
+    return \App\Models\Sounds::count();
+});
