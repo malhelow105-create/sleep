@@ -11,7 +11,7 @@ Route::get('/user', function (Request $request) {
 
 // Route::get('/sounds', [SoundsController::class, 'index']);
 Route::get('/sounds', function (){
-    $sound =\App\Models\Sounds::all();
+    $sound =\App\Models\Sounds::all('name', 'file_path', 'image_path', 'category', 'duration');
     return response()->json($sound);
 });
 Route::get('/sounds/{category}', [SoundsController::class, 'byCategory']);
