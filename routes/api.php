@@ -12,7 +12,7 @@ Route::get('/user', function (Request $request) {
 Route::get('/sounds', [SoundsController::class, 'index']);
 Route::get('/sounds/{category}', [SoundsController::class, 'byCategory']);
 
-Route::get('/nature-images', function () {
+Route::get('/images', function () {
     $files = File::files(public_path('images/nature'));
 
     $urls = [];
@@ -23,3 +23,4 @@ Route::get('/nature-images', function () {
 
     return response()->json($urls);
 });
+// i stopped here because of the images is not working on render anymore
