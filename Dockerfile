@@ -19,7 +19,10 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY . .
 
 # Install Laravel dependencies
-RUN composer install --no-dev --optimize-autoloader && php artisan migrate --force && php artisan db:seed --force
+RUN composer install --no-dev --optimize-autoloader && \
+    php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan view:cache
 
 
 # Expose port
