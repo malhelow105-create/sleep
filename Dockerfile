@@ -20,7 +20,7 @@ COPY . .
 
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader && \
-    php artisan migrate && \
+    # php artisan migrate && \
     php artisan db:seed && \
     php artisan config:cache && \
     php artisan route:cache && \
