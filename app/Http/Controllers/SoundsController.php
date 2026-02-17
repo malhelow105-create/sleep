@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sounds;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class SoundsController extends Controller
 {
@@ -41,4 +42,16 @@ class SoundsController extends Controller
             ];
         }));
     }
+    public function images () {
+     $files = File::files(public_path('images/nature'));
+
+     $urls = [];
+
+     foreach ($files as $file) {
+         $urls[] = asset('images/nature/' . $file->getFilename());
+     }
+
+     return response()->json($urls);
+    }
 }
+
