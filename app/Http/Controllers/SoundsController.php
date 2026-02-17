@@ -43,12 +43,12 @@ class SoundsController extends Controller
         }));
     }
     public function images () {
-     $files = File::files(public_path('images/nature'));
+     $files = File::files(public_path('images/'));
 
      $urls = [];
 
      foreach ($files as $file) {
-         $urls[] = asset('images/nature/' . $file->getFilename());
+         $urls[] = asset('images/' . $file->getFilename());
      }
 
      return response()->json($urls);
