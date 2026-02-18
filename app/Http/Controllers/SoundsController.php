@@ -21,7 +21,7 @@ class SoundsController extends Controller
                 'duration' => $sound->duration,
             ];
         });
-        return response()->json($sounds);
+        return response()->json(['sounds' => $sounds]);
     }
 
 
