@@ -51,7 +51,7 @@ class SoundsController extends Controller
          $urls[] = asset('images/' . $file->getFilename());
      }
 
-     return response()->json($urls);
+     return response()->json([ 'images' => $urls]);
     }
 }
 
