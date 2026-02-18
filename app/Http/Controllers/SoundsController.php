@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SoundResource;
 use App\Models\Sounds;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -9,20 +10,12 @@ use Illuminate\Support\Facades\File;
 class SoundsController extends Controller
 {
     public function index()
-    {
-        $sounds = Sounds::all()->map(function ($sound) {
-            return [
-                'id' => $sound->id,
-                'name' => $sound->name,
-                'file_url' => url($sound->file_path),
-                'image_url' => $sound->image_path
-                    ? url($sound->image_path)
-                    : null,
-                'duration' => $sound->duration,
-            ];
-        });
-        return response()->json(['sounds' => $sounds]);
-    }
+{
+    $sounds = Sounds::orderBy('created_at', 'desc')
+                    ->paginate(20); // 20 per page
+
+    return SoundResource::collection($sounds);
+}
 
 
 
