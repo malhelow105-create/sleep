@@ -7,9 +7,10 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     curl \
+    libpq-dev \
     libzip-dev \
     zip \
-    && docker-php-ext-install zip
+    && docker-php-ext-install pdo pdo_pgsql pgsql zip
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -20,10 +21,7 @@ COPY . .
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Generate app key (safe if exists)
-RUN php artisan key:generate || true
-
-# Expose port
+# Expose Render port
 EXPOSE 10000
 
 # Start Laravel
