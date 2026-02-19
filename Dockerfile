@@ -19,7 +19,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY . .
 
 # Install dependencies
-RUN composer install --no-dev --optimize-autoloader && php artisan migrate --force
+RUN composer install --no-dev --optimize-autoloader
 
 # Expose Render port
 EXPOSE 10000
