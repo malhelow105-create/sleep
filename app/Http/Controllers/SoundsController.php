@@ -11,11 +11,19 @@ class SoundsController extends Controller
 {
     public function index()
 {
-    $sounds = Sounds::orderBy('created_at', 'desc')
-                    ->paginate(20); // 20 per page
+    try {
+        $sounds = Sounds::orderBy('created_at', 'desc')
+                        ->paginate(20);
 
-    return SoundResource::collection($sounds);
+        return SoundResource::collection($sounds);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'error' => $e->getMessage()
+        ], 500);
+    }
 }
+
 
 
 
