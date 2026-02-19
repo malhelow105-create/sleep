@@ -15,3 +15,4 @@ Route::get('/sounds/{category}', [SoundsController::class, 'byCategory']);
 
 Route::get('/images', [SoundsController::class, 'images']);
 // i stopped here because of the images is not working on render anymore
+// the next step is to connect the db with render and then run the seeder to populate the sounds table with some initial data
